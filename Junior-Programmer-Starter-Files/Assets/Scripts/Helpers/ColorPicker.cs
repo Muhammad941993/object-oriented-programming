@@ -16,11 +16,11 @@ public class ColorPicker : MonoBehaviour
     // Start is called before the first frame update
     public void Init()
     {
+        
         foreach (var color in AvailableColors)
         {
             var newButton = Instantiate(ColorButtonPrefab, transform);
             newButton.GetComponent<Image>().color = color;
-            
             newButton.onClick.AddListener(() =>
             {
                 SelectedColor = color;
@@ -32,7 +32,6 @@ public class ColorPicker : MonoBehaviour
                 newButton.interactable = false;
                 
                 onColorChanged.Invoke(SelectedColor);
-               
             });
             
             m_ColorButtons.Add(newButton);
